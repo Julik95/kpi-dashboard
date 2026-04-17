@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build -c=production",
+    "build-prod": "ng build -c=production",
     "build:electron": "ng build -c=electron",
     "electron": "npm run build:electron && electron .",
     "pack": "npm run build:electron && electron-builder --dir",
