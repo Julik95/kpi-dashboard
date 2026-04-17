@@ -1,29 +1,78 @@
 {
-  "name": "excel-dashboard",
-  "version": "0.0.0",
+  "name": "kpi-dashboard",
+  "version": "1.0.1-SNAPSHOT",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build -c=production",
+    "build:electron": "ng build -c=electron",
+    "electron": "npm run build:electron && electron .",
+    "pack": "npm run build:electron && electron-builder --dir",
+    "dist:win": "npm run build:electron && electron-builder --win nsis",
+    "dist:mac": "npm run build:electron && electron-builder --mac dmg zip",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
+  },
+  "build": {
+    "appId": "com.ajax.kpidashboard",
+    "productName": "KPI Dashboard",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/excel-dashboard/browser/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "private": true,
   "packageManager": "npm@10.9.4",
   "dependencies": {
+    "@amcharts/amcharts5": "^5.17.1",
     "@angular/common": "^21.2.0",
     "@angular/compiler": "^21.2.0",
     "@angular/core": "^21.2.0",
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
+    "@primeuix/themes": "^2.0.3",
+    "ag-charts-angular": "^13.2.1",
+    "bootstrap": "^5.3.8",
+    "dexie": "^4.4.2",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^21.1.5",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@angular/build": "^21.2.1",
     "@angular/cli": "^21.2.1",
     "@angular/compiler-cli": "^21.2.0",
+    "electron": "^41.1.1",
+    "electron-builder": "^26.8.1",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",

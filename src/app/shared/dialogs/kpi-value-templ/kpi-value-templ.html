@@ -1,0 +1,60 @@
+<div class="flex flex-column gap-3 w-full">
+  @if(showWarning){
+    <p class="mb-3" [innerHTML]="'HOME.DASHBOARD.KPI_VALUE_DIALOG.KPI_UPDATED_WARNING' | translate:{ KPI_NAME: kpi?.name, USER_NAME: currentUser?.name } "></p>
+  }
+  <form [formGroup]="newKpiValueFG" (ngSubmit)="onSubmit()">
+    <div class="flex flex-column gap-3 p-2 mb-4">
+        <div class="flex flex-row gap-2">
+          @if(showUpdateValue){
+            <p-floatlabel class="flex-1" variant="on">
+                <p-inputnumber 
+                    mode="decimal" 
+                    [minFractionDigits]="2" 
+                    [maxFractionDigits]="5" 
+                    id="kpiValue" 
+                    formControlName="kpiValue" 
+                    class="flex-auto w-full" 
+                    autocomplete="off"
+                    [inputStyle]="{ padding: 'var(--spacing-xs)' }"
+                ></p-inputnumber>
+                <label for="kpiValue" class="font-semibold">{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.VALUE_LABEL' | translate }}</label>
+            </p-floatlabel>
+          }
+          <p-floatlabel class="flex-1" variant="on">
+              <p-inputnumber 
+                  mode="decimal" 
+                  [minFractionDigits]="2" 
+                  [maxFractionDigits]="5" 
+                  id="kpiTarget" 
+                  formControlName="kpiTarget" 
+                  class="flex-auto w-full" 
+                  autocomplete="off"
+                  [inputStyle]="{ padding: 'var(--spacing-xs)' }"
+              ></p-inputnumber>
+              <label for="kpiTarget" class="font-semibold">{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.TARGET_LABEL' | translate }}</label>
+          </p-floatlabel>
+        </div>
+        <div class="flex flex-row gap-2">
+          <p-floatlabel class="flex-1" variant="on">
+            <p-select 
+                id="kpiUnit" 
+                formControlName="kpiUnit" 
+                [options]="kpiUnitOptions" 
+                optionLabel="label" 
+                optionValue="value" 
+                class="w-full"
+                appendTo="body"
+            ></p-select>
+            <label for="kpiUnit" class="font-semibold">{{ 'HOME.DASHBOARD.ADD_NEW_KPI_DIALOG.UNIT_LABEL' | translate }}</label>
+          </p-floatlabel>
+          @if(showRemoveButton){
+            <p-button variant="text" icon="pi pi-trash" label="{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.REMOVE_KPI_BUTTON' | translate:{ USER_NAME: currentUser?.name } }}" severity="danger" (click)="onKpiRemove()"></p-button>
+        }
+        </div>
+      </div>
+    <div class="flex justify-content-end gap-2">
+      <p-button label="{{ 'HOME.WELCOME.NEW_KPI_DIALOG.CANCEL_BUTTON' | translate }}" severity="secondary" (click)="onDialogClose()" />
+      <p-button [disabled]="!newKpiValueFG.valid || !newKpiValueFG.dirty" type="submit" label="{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.CONFIRM_BUTTON' | translate }}" />
+    </div>
+  </form>
+</div>

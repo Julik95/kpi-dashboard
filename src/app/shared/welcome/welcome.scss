@@ -1,0 +1,9 @@
+.wrapper{
+  margin-top: var(--spacing);
+}
+
+@media (min-width: 768px) {
+  .wrapper{
+    margin-top: var(--spacing-xl);
+  }
+}

@@ -1,0 +1,52 @@
+.sidebar .nav-link{
+  font-weight: 500;
+  font-size: var(--spacing);
+}
+
+.empty-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.min-height{
+  min-height: 500px;
+}
+
+::ng-deep p-button .p-button-link{
+  padding: 0.1rem 0.5rem;
+  color: var(--blue);
+  font-weight: 500;
+}
+
+.kpi-name{
+  display: inline-block; 
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 992px) {
+  .kpi-name{
+    max-width: 130px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .kpi-name{
+    max-width: 170px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .kpi-name{
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .kpi-name{
+    max-width: 270px;
+  }
+}

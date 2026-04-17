@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none pb-3 shadow-border d-md-block p-0 bg-light sidebar">
+            <div class="sidebar-sticky">
+                <div class="accordion accordion-flush" id="accordionKPIUsers">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-UserHeading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-UserCollapse" aria-expanded="true" aria-controls="flush-UserCollapse">
+                                {{ 'HOME.SIDEBAR_USERS_HEADING' | translate }}
+                            </button>
+                        </h2>
+                        <div id="flush-UserCollapse" class="accordion-collapse collapse show" aria-labelledby="flush-UserHeading" data-bs-parent="#accordionKPIUsers">
+                            <div class="accordion-body">
+                                <div class="mb-3 border-bottom pb-1">
+                                    <p-button 
+                                        variant="text" 
+                                        severity="primary" 
+                                        [label]="'HOME.DASHBOARD.ADD_NEW_USER_LABEL' | translate"
+                                        (onClick)="addNewUser()" 
+                                        icon="pi pi-plus" 
+                                        iconPos="right"
+                                        class="small-btn" />
+                                </div>
+                                <ul class="nav flex-column">
+                                    @for(user of users$ | async; track user.id){
+                                        <li class="nav-item">
+                                            <p-button link (onClick)="setCurrentUser(user)">
+                                                {{ user.name }}{{ user.sName ? ' ' + user.sName : '' }}
+                                            </p-button>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-KPIheading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-KPIcollapse" aria-expanded="false" aria-controls="flush-KPIcollapse">
+                                {{ 'HOME.SIDEBAR_KPI_HEADING' | translate }}
+                            </button>
+                        </h2>
+                        <div id="flush-KPIcollapse" class="accordion-collapse collapse" aria-labelledby="flush-KPIheading" data-bs-parent="#accordionKPIUsers">
+                            <div class="accordion-body">
+                                <div class="mb-3 border-bottom pb-1">
+                                    <p-button 
+                                        [label]="'HOME.DASHBOARD.ADD_NEW_KPI_LABEL' | translate" 
+                                        variant="text"
+                                        severity="primary" 
+                                        (onClick)="addNewKpi()" 
+                                        icon="pi pi-plus" 
+                                        iconPos="right"
+                                        class="small-btn"
+                                    />
+                                </div>
+                                <ul class="nav flex-column">
+                                    @for(kpi of kpis$ | async; track kpi.id){
+                                        <li class="nav-item">
+                                            <p-button (onClick)="setCurrentKpi(kpi)" (contextmenu)="onContextMenu($event, kpi, cm)" class="small-tooltip" link [pTooltip]="getKpiTarget(kpi)">
+                                                <span class="kpi-name">{{ kpi.name }}</span>
+                                            </p-button>
+                                        </li>
+                                    }
+                                </ul>
+                                <p-contextmenu #cm [model]="kpiContextItems" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="pt-3 col-md-10 ml-sm-auto px-4" role="main">
+            @if(!!(currentUserId$ | async)){
+                <dash-user-dashboard 
+                    [userId$]="currentUserId$"
+                    (userUnset)="currentUserId.next(undefined)"
+                ></dash-user-dashboard>
+            }@else{
+                @if(!!(currentKpiId$ | async)){
+                    <dash-kpi-dashboard 
+                        [kpiId$]="currentKpiId$"
+                        (kpiUnset)="currentKpiId.next(undefined)"
+                    ></dash-kpi-dashboard>
+                }@else{
+                    <div class="w-full text-center empty-container min-height">
+                        <h6>{{ 'HOME.EMPTY_STATE_MESSAGE' | translate }}</h6>
+                    </div>
+                }
+            }
+        </main>
+    </div>
+</div>
+<dash-kpi-dialog [(showDialog)]="showNewKPIDialog"></dash-kpi-dialog>
+<dash-user-dialog 
+    [(showDialog)]="showNewUserDialog"
+    [kpis$]="kpis$"
+    (userCreated)="onNewUserCreated($event)"
+></dash-user-dialog>
+<p-toast />
+<p-confirmDialog />

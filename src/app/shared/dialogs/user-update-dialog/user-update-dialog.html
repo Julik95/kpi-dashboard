@@ -1,0 +1,114 @@
+<p-dialog
+    [modal]="true" 
+    [(visible)]="showDialog" 
+    [style]="{ width: '60rem' }"
+    [closable]="false"
+>
+    <ng-template #header>
+        <span class="p-dialog-title" data-pc-section="title">
+            {{ 'HOME.WELCOME.NEW_USER_DIALOG.HEADER' | translate }}
+        </span>
+    </ng-template>
+    <div class="flex flex-column gap-3 p-2">
+        <form [formGroup]="userUpdateForm">
+            <div class="flex w-full flex-row gap-2">
+                <p-floatlabel class="flex-1" variant="on">
+                    <input type="text" pInputText id="userName" formControlName="name" class="flex-auto p-2 w-full" autocomplete="off" />
+                    <label for="userName" class="font-semibold">{{ 'HOME.WELCOME.NEW_USER_DIALOG.NAME_LABEL' | translate }}</label>
+                </p-floatlabel>
+                <p-floatlabel class="flex-1" variant="on">
+                    <input type="text" pInputText id="userSName" formControlName="sName" class="flex-auto p-2 w-full" autocomplete="off" />
+                    <label for="userSName" class="font-semibold">{{ 'HOME.WELCOME.NEW_USER_DIALOG.SNAME_LABEL' | translate }}</label>
+                </p-floatlabel>
+            </div>
+        </form>
+        <div class="flex w-full mt-3">
+            <p-table 
+                [value]="(kpis$ | async) || []" 
+                class="w-full"
+            >
+                <ng-template #header>
+                    <tr>
+                        <th>{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.KPI_NAME_LABEL' | translate }}</th>
+                        <th>{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.KPI_VALUE_LABEL' | translate }}</th>
+                        <th>{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.KPI_TARGET_LABEL' | translate }}</th>
+                        <th>{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.ADD_KPI_STATE' | translate }}</th>
+                        <th>{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.KPI_ACTIONS_LABEL' | translate }}</th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-kpi>
+                    <tr>
+                        @let userKpi = getUserKpi(kpi.id);
+                        <td>
+                            {{ kpi.name }}
+                        </td>
+                        <td pEditableColumn  [pEditableColumnDisabled]="userKpi===undefined">
+                            <p-cellEditor>
+                                <ng-template pTemplate="output">
+                                    <p-tag [value]="getKpiValue(kpi, userKpi!==undefined)" [severity]="getKpiTagSeverity(kpi, userKpi!==undefined)" />
+                                </ng-template>
+                                <ng-template pTemplate="input">
+                                    <p-floatlabel variant="on">
+                                        <p-inputnumber 
+                                            mode="decimal" 
+                                            [minFractionDigits]="2" 
+                                            [maxFractionDigits]="5" 
+                                            id="kpiValue" 
+                                            [ngModel]="getUserKpiValue(kpi.id)"
+                                            (ngModelChange)="onUserKpiValueChange(kpi.id, $event)"
+                                            [disabled]="userKpi===undefined"
+                                            class="small-input p-inputtext-sm" 
+                                            autocomplete="off"
+                                        ></p-inputnumber>
+                                        <label for="kpiValue" class="font-semibold">{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.VALUE_LABEL' | translate }}</label>
+                                    </p-floatlabel>
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td pEditableColumn [pEditableColumnDisabled]="userKpi===undefined">
+                            <p-cellEditor>
+                                <ng-template pTemplate="output">
+                                    <p-tag [value]="getKpiTarget(kpi, userKpi!==undefined)" severity="secondary" />
+                                </ng-template>
+                                <ng-template pTemplate="input">
+                                    <p-floatlabel variant="on">
+                                        <p-inputnumber 
+                                            mode="decimal" 
+                                            [minFractionDigits]="2" 
+                                            [maxFractionDigits]="5" 
+                                            id="kpiTarget" 
+                                            [ngModel]="getUserKpiTarget(kpi.id)"
+                                            (ngModelChange)="onUserKpiTargetChange(kpi.id, $event)"
+                                            [disabled]="userKpi===undefined"
+                                            class="small-input p-inputtext-sm" 
+                                            autocomplete="off"
+                                        ></p-inputnumber>
+                                        <label for="kpiTarget" class="font-semibold">{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.TARGET_LABEL' | translate }}</label>
+                                    </p-floatlabel>
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            @if(userKpi!==undefined){
+                                <p-tag severity="success" value="{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.KPI_ADDED_LABEL' | translate }}" />
+                            }@else{
+                                <p-tag severity="info" value="{{ 'HOME.DASHBOARD.USER_UPDATE_DIALOG.KPI_TABLE.KPI_NOT_ADDED_LABEL' | translate }}" />
+                            }
+                        </td>
+                        <td>
+                            @if(userKpi!==undefined){
+                                <p-button class="small-btn" (onClick)="removeKpiFromUser(kpi)" icon="pi pi-trash" variant="text" severity="danger" />
+                            }@else {
+                                <p-button class="small-btn" (onClick)="addKpiToUser(kpi)" icon="pi pi-plus-circle" variant="text" severity="info" />
+                            }
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="flex justify-content-end gap-2">
+            <p-button label="{{ 'HOME.WELCOME.NEW_USER_DIALOG.CANCEL_BUTTON' | translate }}" severity="secondary" (click)="onDialogClose()" />
+            <p-button [disabled]="!userUpdateForm.valid" type="submit" label="{{ 'HOME.DASHBOARD.UPDATE_LABEL' | translate }}" (onClick)="doUpdate()" />
+        </div>
+    </div>
+</p-dialog>

@@ -1,0 +1,9 @@
+::ng-deep .p-multiselect {
+  &.ng-touched.ng-invalid > .p-multiselect-label {
+    padding: 0.375rem 0.75rem;
+  }
+
+  .p-multiselect-label {
+    padding: 0.375rem 0.75rem;
+  }
+}

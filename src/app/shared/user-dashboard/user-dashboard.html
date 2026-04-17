@@ -1,0 +1,118 @@
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center gap-2 pb-2 mb-3 border-bottom">
+    <div class="flex flex-column gap-2">
+        <div class="flex flex-row align-items-center gap-2">
+            <img src="/assets/imgs/dashboard-32.png" width="32px" height="32px" alt="Dashboard Icon"/>
+            <h1 class="h2">{{ heading }}</h1>
+        </div>
+        <div class="flex align-items-baseline flex-wrap justify-center gap-2">
+            <span>{{ 'HOME.DASHBOARD.KPI_DESC_LABEL' | translate }}</span>
+            @for(kpi of userkpis; track kpi.id){
+                 <p-splitButton
+                    outlined 
+                    (onClick)="showSingleKpiGuage(kpi)" 
+                    [severity]="'contrast'" 
+                    [label]="kpiDescription(kpi)" 
+                    [model]="kpiMenuItems[kpi.id] || []"
+                    variant="outlined" class="small-btn"
+                    [pTooltip]="kpiTooltip(kpi)" tooltipPosition="bottom"
+                ></p-splitButton>
+            }
+                @if(hasAvailableKpis$ | async) {
+                    <p-button variant="text" (onClick)="addNewKpi()" icon="pi pi-plus" class="small-btn" severity="secondary" />
+                }
+            
+        </div>
+    </div>
+    
+    <div class="flex gap-3 btn-toolbar mb-2 justify-content-end mb-md-0">
+        @if(!!user){
+            <div class="flex align-items-end flex-column gap-2">
+                <p-buttongroup class="shadowed-btn"> 
+                    <p-button class="shadowed" [label]="'HOME.DASHBOARD.UPDATE_USER_LABEL' | translate" (onClick)="updateUser()" variant="text" icon="pi pi-refresh" severity="primary" />
+                    <p-button class="shadowed" [label]="'HOME.DASHBOARD.REMOVE_USER_LABEL' | translate" (onClick)="removeUser()" variant="text" icon="pi pi-trash" severity="danger" />
+                </p-buttongroup>
+
+                <p-buttongroup class="shadowed-btn w-fit">
+                    @if(showCompareButton$ | async){
+                        <p-button  (onClick)="showCompareKpiChart()" severity="primary" tooltipPosition="bottom" [pTooltip]="'HOME.DASHBOARD.KPI_COMPARE_BTL_LABEL' | translate">
+                            <img src="/assets/imgs/compare-24.png" style="height:24px;" />
+                        </p-button>
+                    }
+                    <p-button  (onClick)="showAllKpisView()" icon="pi pi-th-large" severity="primary" />
+                </p-buttongroup>
+            </div>
+        }
+    </div>
+</div>
+<div class="d-flex w-full justify-content-center">
+    
+    @switch (viewMode) {
+        @case (DashboardViewMode.SINGLE_KPI) {
+            <div class="flex w-full justify-content-center">
+                <dash-single-kpi-guage
+                    [chartData$]="currentKpi$"
+                    [chartTitle]="'HOME.DASHBOARD.KPI_OVERVIEW.HEADING' | translate"
+                    [chartDescription]="'HOME.DASHBOARD.KPI_OVERVIEW.DESCRIPTION' | translate:{ USER_NAME: user?.name}"
+                    [chartMin]="0"
+                    [chartMax]="100"
+                    [guageHeight]="480"
+                    [guageWidth]="640"
+                >
+                </dash-single-kpi-guage>
+            </div>
+        }
+        @case (DashboardViewMode.ALL_KPIS) {
+            @if(allKpisSbj.length > 0){
+                <div class="grid w-full">
+                    @for(chartDataSbj of allKpisSbj; track chartDataSbj){
+                        <div class="col-12 lg:col-6 xl:col-4 flex justify-content-center">
+                            <dash-single-kpi-guage
+                                [chartData$]="chartDataSbj.asObservable()"
+                                [chartTitle]="(chartDataSbj.asObservable() | async)?.name || ''"
+                                [chartDescription]="'HOME.DASHBOARD.KPI_OVERVIEW.DESCRIPTION' | translate:{ USER_NAME: user?.name}"
+                                [chartMin]="0"
+                                [chartMax]="100"
+                                [guageHeight]="300"
+                                [kpiNameLength]="24"
+                            >
+                            </dash-single-kpi-guage>
+                        </div>
+                    }
+                </div>
+            }@else{
+                <ng-container [ngTemplateOutlet]="emptyState"></ng-container>
+            }
+        }
+
+        @case (DashboardViewMode.MULTI_KPI) {
+            @if(groupedKpiCount > 0){
+                @if(groupedKpiCount === 1){
+                    <div class="flex w-full justify-content-center">
+                        
+                    </div>
+                }@else {
+                    <div class="grid w-full">
+                        @for(item of groupedByUnitKpis | keyvalue; track item.key){
+                            <div class="col-12 lg:col-6 xl:col-4 flex justify-content-center">
+                                
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            
+        }
+    }
+
+    <ng-template #emptyState>
+        <div class="w-full pt-6 text-center empty-container min-height">
+            <p class="font-semibold" [innerHTML]="'HOME.DASHBOARD.KPI_UNAVAILABLE' | translate: { USER_NAME: user?.name } "></p>
+        </div>
+    </ng-template>
+    
+</div>
+<dash-user-update-dialog
+    [(showDialog)]="showUserUpdateDialog"
+    [userId$]="userId$"
+></dash-user-update-dialog>

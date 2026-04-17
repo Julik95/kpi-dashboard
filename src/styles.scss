@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+@import "./assets/constants.scss";
+
+
+.text-bold{
+    font-weight: 700;
+}
+
+body{
+    background-color: var(--gray);
+    nav{
+        &.main{
+            box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+        }
+        &.dark {
+            background-color: var(--dark);
+            color: var(--white);
+            
+            .navbar-brand{
+                color: var(--white);
+            }
+            .nav-link{
+                color: var(--white);
+                &:hover, &:focus, &:active{
+                    color: var(--light-gray);
+                }
+            }
+        }
+
+    }
+
+    .elevated{
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    }
+    .shadow-border{
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    }
+    .shadowed-btn{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    p-select .p-select-label{
+        padding: var(--spacing-xs);
+    }
+}
+
+.small-btn{
+    .p-button.p-component {
+        padding: 0.1rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+.small-input{
+    .p-inputtext {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+.darker-tag{
+    --p-tag-secondary-background: #E5E7EB;
+}
+
+
+
+@media (min-width: 768px) {
+    .flex-md-nowrap {
+        flex-wrap: nowrap !important;
+    }
+}
+

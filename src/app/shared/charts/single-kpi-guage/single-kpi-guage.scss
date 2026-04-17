@@ -1,0 +1,21 @@
+.single-kpi-container{
+  width: 510px;
+}
+
+@media (min-width: 768px) {
+  .single-kpi-container{
+    width: 460px;
+  }
+}
+
+@media (min-width: 992px) {
+  .single-kpi-container{
+    width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .single-kpi-container{
+    width: 360px;
+  }
+}

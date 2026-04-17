@@ -1,0 +1,109 @@
+{
+    "NAV": {
+        "BRAND": "KPI Dashboard"
+    },
+    "HOME": {
+        "MESSAGES": {
+            "KPI_CREATED": "KPI {{KPI_NAME}} creato con successo",
+            "KPI_CREATION_ERROR": "Errore durante la creazione del KPI {{KPI_NAME}}",
+            "KPI_REMOVED": "KPI {{KPI_NAME}} rimosso con successo",
+            "KPI_REMOVED_FROM_USER": "KPI {{KPI_NAME}} rimosso da {{USER_NAME}} con successo",
+            "KPI_REMOVAL_ERROR": "Errore durante la rimozione del KPI {{KPI_NAME}}",
+            "USER_CREATED": "Utente {{USER_NAME}} creato con successo",
+            "USER_CREATION_ERROR": "Errore durante la creazione dell'utente {{USER_NAME}}",
+            "USER_REMOVED": "Utente {{USER_NAME}} rimosso con successo",
+            "USER_REMOVAL_ERROR": "Errore durante la rimozione dell'utente {{USER_NAME}}",
+            "KPI_FOR_USERS_UPDATED": "{{KPI_NAME}} aggiornato per gli utenti che lo utilizzano con successo",
+            "KPI_UPDATED": "{{KPI_NAME}} aggiornato con successo"
+        },
+        "SIDEBAR_KPI_HEADING": "Lista KPI",
+        "SIDEBAR_USERS_HEADING": "Lista utenti",
+        "EMPTY_STATE_MESSAGE": "Seleziona un utente per visualizzare il suo dashboard o aggiungi un nuovo utente.",
+        "KPI_DASHBOARD":{
+            "HEADING": "Di seguito viene riportato un'istogramma che mostra il valore attuale del KPI per ciascun utente che lo utilizza. Puoi confrontare i KPI degli utenti per identificare chi è più vicino al raggiungimento del target.",
+            "HEADING_NO_VALUES":"Dati non disponibili per questo KPI. Assicurati che almeno un utente abbia impostato un valore per questo KPI per visualizzare il grafico.",
+            "KPI_USED_BY": "KPI assegnato a {{USER_COUNT}} utenti:"
+        },
+        "DASHBOARD": {
+            "HEADING": "Dashboard di {{USER_NAME}}",
+            "KPI_DESC_LABEL": "KPI utente:",
+            "UPDATE_LABEL": "Aggiorna",
+            "REMOVE_LABEL": "Rimuovi",
+            "UPDATE_USER_LABEL": "Aggiorna utente",
+            "REMOVE_USER_LABEL": "Rimuovi utente",
+            "CONFIRM_REMOVE_USER": "Sei sicuro di voler rimuovere {{USER_NAME}}? Questa azione non può essere annullata.",
+            "CONFIRM_REMOVE_USER_HEADER": "Conferma rimozione utente",
+            "CONFIRM_ACCEPT_LABEL": "Sì, certo",
+            "CONFIRM_REJECT_LABEL": "No, annulla",
+            "ADD_NEW_KPI_LABEL": "Aggiungi un KPI",
+            "ADD_NEW_USER_LABEL": "Aggiungi un utente",
+            "REMOVE_KPI_LABEL": "Rimuovi",
+            "UPDATE_KPI_TARGET_LABEL": "Aggiorna",
+            "CONFIRM_REMOVE_KPI": "Sei sicuro di voler rimuovere {{KPI_NAME}}? Questo KPI è in uso da {{USER_COUNT}} utenti. Questa azione non può essere annullata.",
+            "CONFIRM_REMOVE_KPI_HEADER": "Conferma rimozione KPI",
+            "KPI_UNAVAILABLE":"Purtroppo i KPI di {{USER_NAME}} non sono coerenti. <br />Per visualizzarli correttamente i grafici, assicurati di aver settato sia il valore che il target dei KPI.",
+            "KPI_COMPARE_BTL_LABEL": "Confronta KPI",
+            "KPI_VALUE_DIALOG": {
+                "HEADING": "Aggiorna il KPI - {{KPI_NAME}} con il target {{KPI_TARGET}}",
+                "VALUE_LABEL": "Nuovo valore del KPI",
+                "CONFIRM_BUTTON": "Aggiorna",
+                "REMOVE_KPI_BUTTON": "Rimuovi questo KPI da {{USER_NAME}}",
+                "TARGET_LABEL": "Nuovo target del KPI",
+                "UPDATE_KPI_USERS_MESSAGE": "{{KPI_NAME}} è utilizzato da {{USER_COUNT}} utenti. Aggiornare questo KPI anche per gli altri utenti che lo utilizzano?",
+                "UPDATE_KPI_USERS_HEADER": "Aggiorna KPI per altri utenti",
+                "UPDATE_KPI_USERS_CONFIRM": "Sì, aggiorna",
+                "UPDATE_KPI_USERS_CANCEL": "No, lascia così com'è",
+                "KPI_UPDATED_WARNING": "<span class='font-semibold text-orange-500'>ATTENZIONE!</span> <span class='font-italic'>Aggiornando il {{KPI_NAME}} la modifica sarà applicata esclusivamente per {{USER_NAME}}.</span>"
+            },
+            "ADD_NEW_KPI_DIALOG": {
+                "HEADING": "Aggiungi un KPI a {{USER_NAME}}",
+                "UNIT_LABEL": "Unità del KPI*",
+                "KPI_UNIT_PERCENTAGE": "Percentuale (%)",
+                "KPI_UNIT_CURRENCY": "Valuta (€)",
+                "KPI_UNIT_ABSOLUTE": "Generico"
+            },
+            "KPI_OVERVIEW": {
+                "VALUE_LABEL": "Valore:",
+                "TARGET_LABEL": "Target:",
+                "UNIT_LABEL": "Unità:",
+                "HEADING": "Panoramica dei KPI",
+                "DESCRIPTION": "Di seguito è riportata una panoramica dei KPI di {{USER_NAME}}. Puoi aggiornare i valori dei KPI o rimuoverli se necessario."
+            },
+            "USER_UPDATE_DIALOG": {
+                "HEADING": "Aggiorna i dati di {{USER_NAME}}",
+                "KPI_TABLE":{
+                    "KPI_NAME_LABEL": "Nome del KPI",
+                    "KPI_TARGET_LABEL": "Target del KPI",
+                    "KPI_VALUE_LABEL": "Valore del KPI",
+                    "ADD_KPI_STATE": "Stato",
+                    "KPI_ADDED_LABEL": "Aggiunto",
+                    "KPI_NOT_ADDED_LABEL": "Disponibile",
+                    "KPI_ACTIONS_LABEL": "Azioni"
+                }
+            }
+        },
+        "WELCOME": {
+            "HEADING": "Benvenuto in KPI Dashboard",
+            "TEXT": "Esplora i tuoi KPI salvati e visualizza i dati in modo interattivo. Inizia aggiungendo un nuovo KPI:",
+            "START_BUTTON": "Aggiungi un KPI",
+            "NEW_KPI_DIALOG": {
+                "HEADER": "Aggiungi un nuovo KPI",
+                "LABEL": "Nome del KPI*",
+                "CANCEL_BUTTON": "Annulla",
+                "ADD_BUTTON": "Aggiungi",
+                "VALUE_LABEL": "Valore target del KPI"
+            },
+            "NEW_USER_DIALOG": {
+                "HEADER": "Aggiungi un nuovo utente",
+                "NAME_LABEL": "Nome",
+                "SNAME_LABEL": "Cognome",
+                "CANCEL_BUTTON": "Annulla",
+                "ADD_BUTTON": "Aggiungi",
+                "SELECT_KPI": "Seleziona KPI da assegnare"
+            }
+        }
+    },
+    "LANG": {
+        "SWITCH": "Lingua"
+    }
+}

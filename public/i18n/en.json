@@ -1,0 +1,74 @@
+{
+    "NAV": {
+        "BRAND": "KPI Dashboard",
+        "HOME": "Home",
+        "DASHBOARD": "Dashboard",
+        "DARK_MODE": "Dark",
+        "LIGHT_MODE": "Light",
+        "ADD_NEW": "Add"
+    },
+    "HOME": {
+        "SIDEBAR_KPI_HEADING": "Saved KPIs",
+        "SIDEBAR_USERS_HEADING": "Users",
+        "EMPTY_STATE_MESSAGE":"Select a user to his their dashboard or add a new user.",
+        "TARGET_LABEL":"Target: {{TARGET_VALUE}}",
+        "DASHBOARD":{
+            "HEADING":"{{USER_NAME}}'s Dashboard",
+            "KPI_DESC_LABEL":"User KPIs:",
+            "ADD_LABEL":"Add",
+            "UPDATE_LABEL":"Update",
+            "REMOVE_LABEL":"Remove",
+            "UPDATE_USER_LABEL":"Update User",
+            "REMOVE_USER_LABEL":"Remove User",
+            "CONFIRM_REMOVE_USER":"Are you sure you want to remove {{USER_NAME}}? This action cannot be undone.",
+            "CONFIRM_REMOVE_USER_HEADER":"Confirm User Removal",
+            "CONFIRM_ACCEPT_LABEL":"Yes, remove",
+            "CONFIRM_REJECT_LABEL":"No, cancel",
+            "REMOVE_USER_SUCCESS_MESSAGE":"{{USER_NAME}} removed successfully",
+
+            "KPI_VALUE_DIALOG":{
+                "HEADING":"Update KPI Value - {{KPI_NAME}} with target {{KPI_TARGET}}",
+                "VALUE_LABEL":"New KPI Value",
+                "CONFIRM_BUTTON":"Update",
+                "REMOVE_KPI_BUTTON":"Remove this KPI from {{USER_NAME}}",
+                "REMOVE_KPI_SUCCESS_MESSAGE":"{{KPI_NAME}} removed successfully from {{USER_NAME}}",
+                "UPDATE_KPI_SUCCESS_MESSAGE":"New {{KPI_NAME}} value updated successfully for {{USER_NAME}}"
+            },
+            "ADD_NEW_KPI_DIALOG":{
+                "HEADING":"Add a KPI to {{USER_NAME}}",
+                "SUCCESS_MESSAGE":"KPI(s) added successfully to {{USER_NAME}}"
+            },
+            "KPI_OVERVIEW":{
+                "HEADING":"KPI Overview",
+                "DESCRIPTION":"Below is an overview of {{USER_NAME}}'s KPIs. You can update KPI values or remove them if needed."
+            }
+        },
+        "WELCOME":{
+            "HEADING":"Welcome to KPI Dashboard",
+            "TEXT":"Explore your saved KPIs and view data interactively. Start by adding a new KPI:",
+            "START_BUTTON":"Add a KPI",
+            "NEW_KPI_DIALOG":{
+                "HEADER":"Add a New KPI",
+                "LABEL":"KPI Name",
+                "PLACEHOLDER":"Enter KPI name",
+                "CANCEL_BUTTON":"Cancel",
+                "ADD_BUTTON":"Add",
+                "VALUE_LABEL":"KPI Target Value",
+                "VALUE_PLACEHOLDER":"Enter KPI target value"
+            },
+            "NEW_USER_DIALOG":{
+                "HEADER":"Add a New User",
+                "NAME_LABEL":"First Name",
+                "NAME_PLACEHOLDER":"Enter user's first name",
+                "SNAME_LABEL":"Last Name",
+                "SNAME_PLACEHOLDER":"Enter user's last name",
+                "CANCEL_BUTTON":"Cancel",
+                "ADD_BUTTON":"Add",
+                "SELECT_KPI":"Select KPIs to assign"
+            }
+        }
+    },
+    "LANG": {
+        "SWITCH": "Language"
+    }
+}
