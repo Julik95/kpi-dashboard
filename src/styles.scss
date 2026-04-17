@@ -2,6 +2,9 @@
 @import "primeflex/primeflex.css";
 @import "./assets/constants.scss";
 
+html, body {
+  height: 100%;
+}
 
 .text-bold{
     font-weight: 700;
@@ -62,7 +65,32 @@ body{
     --p-tag-secondary-background: #E5E7EB;
 }
 
+.cover-container {
+    max-width: 42em;
+}
 
+.cover {
+    padding: 0 1.5rem;
+}
+
+.mastfoot{
+    color: var(--dark-gray);
+    font-size: var(--font-sz-sm);
+}
+
+.mastfoot a{
+    color: var(--dark-gray);
+    text-decoration: none;
+    &:hover, &:focus, &:active{
+        color: var(--light-gray);
+        text-decoration: underline;
+    }
+}   
+
+.navbar-nav .nav-link.active{
+    color: var(--green)!important;
+    font-weight: 500;
+}
 
 @media (min-width: 768px) {
     .flex-md-nowrap {

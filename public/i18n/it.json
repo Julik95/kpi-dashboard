@@ -1,6 +1,14 @@
 {
     "NAV": {
-        "BRAND": "KPI Dashboard"
+        "BRAND": "KPI Dashboard",
+        "HOME": "Home",
+        "ABOUT": "Informazioni",
+        "LANG": {
+            "SWITCH": "Lingua"
+        }
+    },
+    "FOOTER": {
+        "CONTENT": "© {{YEAR}} KPI Dashboard. Tutti i diritti riservati. <br />Versione: {{APP_VERSION}} Sviluppato da <a href='#' target='_blank' class='font-semibold'>Yuliy Khlyebnikov</a>."
     },
     "HOME": {
         "MESSAGES": {
@@ -18,7 +26,7 @@
         },
         "SIDEBAR_KPI_HEADING": "Lista KPI",
         "SIDEBAR_USERS_HEADING": "Lista utenti",
-        "EMPTY_STATE_MESSAGE": "Seleziona un utente per visualizzare il suo dashboard o aggiungi un nuovo utente.",
+        "EMPTY_STATE_MESSAGE": "Seleziona un utente per visualizzare il suo dashboard o un KPI per visualizzare l'andamento.",
         "KPI_DASHBOARD":{
             "HEADING": "Di seguito viene riportato un'istogramma che mostra il valore attuale del KPI per ciascun utente che lo utilizza. Puoi confrontare i KPI degli utenti per identificare chi è più vicino al raggiungimento del target.",
             "HEADING_NO_VALUES":"Dati non disponibili per questo KPI. Assicurati che almeno un utente abbia impostato un valore per questo KPI per visualizzare il grafico.",
@@ -46,6 +54,7 @@
             "KPI_VALUE_DIALOG": {
                 "HEADING": "Aggiorna il KPI - {{KPI_NAME}} con il target {{KPI_TARGET}}",
                 "VALUE_LABEL": "Nuovo valore del KPI",
+                "NEW_KPI_NAME":"Nuovo nome del KPI(*)",
                 "CONFIRM_BUTTON": "Aggiorna",
                 "REMOVE_KPI_BUTTON": "Rimuovi questo KPI da {{USER_NAME}}",
                 "TARGET_LABEL": "Nuovo target del KPI",
@@ -101,9 +110,10 @@
                 "ADD_BUTTON": "Aggiungi",
                 "SELECT_KPI": "Seleziona KPI da assegnare"
             }
+        },
+        "ABOUT": {
+            "HEADING": "Informazioni su KPI Dashboard",
+            "DESCRIPTION": "KPI Dashboard è un'applicazione WEB progettata per aiutarti a monitorare e confrontare i tuoi indicatori chiave di prestazione (KPI) in modo semplice e intuitivo. Con KPI Dashboard, puoi creare un dashboard personalizzato per tenere traccia dei tuoi KPI più importanti, visualizzare i dati in grafici interattivi e confrontare le prestazioni tra diversi utenti. Che tu stia monitorando le metriche di business, gli obiettivi personali o qualsiasi altro tipo di KPI, KPI Dashboard ti offre gli strumenti necessari per rimanere informato e prendere decisioni basate sui dati."
         }
-    },
-    "LANG": {
-        "SWITCH": "Lingua"
     }
 }

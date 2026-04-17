@@ -4,6 +4,12 @@
   }
   <form [formGroup]="newKpiValueFG" (ngSubmit)="onSubmit()">
     <div class="flex flex-column gap-3 p-2 mb-4">
+        <div class="flex flex-row">
+          <p-floatlabel class="flex-1" variant="on">
+            <input type="text" pInputText id="kpiName" formControlName="kpiName" class="flex-auto p-2 w-full" autocomplete="off" />
+            <label for="kpiName" class="font-semibold">{{ 'HOME.DASHBOARD.KPI_VALUE_DIALOG.NEW_KPI_NAME' | translate }}</label>
+          </p-floatlabel>
+        </div>
         <div class="flex flex-row gap-2">
           @if(showUpdateValue){
             <p-floatlabel class="flex-1" variant="on">

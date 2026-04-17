@@ -10,16 +10,16 @@ import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 import { LOG_LEVEL } from './core/utils/app.utils';
 import { LogService } from './core/service/log.service';
-import { LogLevel } from './core/model/app.model';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withHashLocation()),
+    provideRouter(routes, ...(environment.useHashLocation ? [withHashLocation()] : [])),
     provideHttpClient(),
     provideTranslateService({
-      lang: 'it',
+      lang: environment.defaultLanguage,
       loader: provideTranslateLoader(TranslateHttpLoader)
     }),
     ...provideTranslateHttpLoader({ prefix: './i18n/', suffix: '.json' }),
@@ -36,7 +36,7 @@ export const appConfig: ApplicationConfig = {
       MessageService,
       ConfirmationService,
       LogService,
-      { provide: LOG_LEVEL, useValue: LogLevel.INFO }
+      { provide: LOG_LEVEL, useValue: environment.logLevel }
     ]
   ]
 };

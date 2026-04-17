@@ -11,6 +11,9 @@ export const routes: Routes = [
     path: 'welcome', loadComponent: () => import('./shared/pages/welcome/welcome').then(m => m.WelcomePageComponent)
   },
   {
+    path: 'about', loadComponent: () => import('./shared/pages/about/about').then(m => m.AboutComponent)
+  },
+  {
     path: '**', redirectTo: '/home'
   }
 ];

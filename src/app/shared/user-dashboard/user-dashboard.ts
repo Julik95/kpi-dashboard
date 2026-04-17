@@ -296,6 +296,8 @@ export class UserDashboardComponent implements OnInit {
                         this.messageService.add({severity:'success', summary:this.translate.instant('HOME.MESSAGES.USER_REMOVED', {USER_NAME: this.userName}), detail: ''});
                         this.currentKpi.next(null);
                         this.userUnset.emit();
+                        this.user = undefined;
+                        this.cdr.detectChanges();
                     });
                 }
             }

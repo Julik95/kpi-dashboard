@@ -9,10 +9,11 @@ import { Kpi, User } from '../../../core/model/kpi.model';
 import { SelectModule } from 'primeng/select';
 import { KpiService } from '../../../core/service/kpi.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-kpi-value-templ',
-  imports: [FormsModule, ReactiveFormsModule, ButtonModule, TranslateModule, FloatLabelModule, InputNumberModule, SelectModule],
+  imports: [FormsModule, ReactiveFormsModule, ButtonModule, TranslateModule, FloatLabelModule, InputNumberModule, SelectModule, InputTextModule],
   templateUrl: './kpi-value-templ.html',
   styleUrl: './kpi-value-templ.scss',
 })
@@ -41,7 +42,8 @@ export class KpiValueTemplComponent implements OnInit {
         this.currentUser = this.config.data?.user || undefined;
         this.newKpiValueFG = new FormGroup({
             kpiTarget: new FormControl('', Validators.required),
-            kpiUnit: new FormControl('', Validators.required)
+            kpiUnit: new FormControl('', Validators.required),
+            kpiName: new FormControl('', Validators.required)
         });
         
         if(this.showUpdateValue){
@@ -61,6 +63,7 @@ export class KpiValueTemplComponent implements OnInit {
             }
             this.newKpiValueFG.get('kpiTarget')?.setValue(this.kpi.target);
             this.newKpiValueFG.get('kpiUnit')?.setValue(this.kpi.unit);
+            this.newKpiValueFG.get('kpiName')?.setValue(this.kpi.name);
         }
     }
 
@@ -81,9 +84,11 @@ export class KpiValueTemplComponent implements OnInit {
         if (this.newKpiValueFG.valid) {
             const kpiTarget = this.newKpiValueFG.get('kpiTarget')?.value;
             const kpiUnit = this.newKpiValueFG.get('kpiUnit')?.value;
+            const kpiName = this.newKpiValueFG.get('kpiName')?.value.trim();
             if(!!this.kpi){
                 this.kpi.target = kpiTarget;
                 this.kpi.unit = kpiUnit;
+                this.kpi.name = kpiName;
                 if(this.showUpdateValue){
                     this.kpi.value = this.newKpiValueFG.get('kpiValue')?.value;
                 }
@@ -92,6 +97,7 @@ export class KpiValueTemplComponent implements OnInit {
                         if(k.id === this.kpi?.id){
                             k.target = kpiTarget;
                             k.unit = kpiUnit;
+                            k.name = kpiName;
                             if(this.showUpdateValue){
                                 k.value = this.newKpiValueFG.get('kpiValue')?.value;
                             }
@@ -121,7 +127,7 @@ export class KpiValueTemplComponent implements OnInit {
                                     const updateUsers = users.map(user => {
                                         const updatedKpis = user.kpis?.map(k => {
                                             if(k.id === this.kpi?.id){
-                                                return { ...k, target: kpiTarget, unit: kpiUnit, value: this.showUpdateValue ? this.newKpiValueFG.get('kpiValue')?.value : k.value }
+                                                return { ...k, target: kpiTarget, unit: kpiUnit, value: this.showUpdateValue ? this.newKpiValueFG.get('kpiValue')?.value : k.value, name: kpiName }
                                             }
                                             return k;
                                         });

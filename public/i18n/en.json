@@ -1,109 +1,119 @@
 {
-    "NAV": {
-        "BRAND": "KPI Dashboard"
-    },
-    "HOME": {
-        "MESSAGES": {
-            "KPI_CREATED": "KPI {{KPI_NAME}} created successfully",
-            "KPI_CREATION_ERROR": "Error while creating KPI {{KPI_NAME}}",
-            "KPI_REMOVED": "KPI {{KPI_NAME}} removed successfully",
-            "KPI_REMOVED_FROM_USER": "KPI {{KPI_NAME}} removed from {{USER_NAME}} successfully",
-            "KPI_REMOVAL_ERROR": "Error while removing KPI {{KPI_NAME}}",
-            "USER_CREATED": "User {{USER_NAME}} created successfully",
-            "USER_CREATION_ERROR": "Error while creating user {{USER_NAME}}",
-            "USER_REMOVED": "User {{USER_NAME}} removed successfully",
-            "USER_REMOVAL_ERROR": "Error while removing user {{USER_NAME}}",
-            "KPI_FOR_USERS_UPDATED": "{{KPI_NAME}} updated successfully for users who are using it",
-            "KPI_UPDATED": "{{KPI_NAME}} updated successfully"
-        },
-        "SIDEBAR_KPI_HEADING": "KPI List",
-        "SIDEBAR_USERS_HEADING": "User List",
-        "EMPTY_STATE_MESSAGE": "Select a user to view their dashboard or add a new user.",
-        "KPI_DASHBOARD":{
-            "HEADING": "Below is a histogram showing the current KPI value for each user who uses it. You can compare user KPIs to identify who is closest to reaching the target.",
-            "HEADING_NO_VALUES":"No data available for this KPI. Make sure at least one user has set a value for this KPI to display the chart.",
-            "KPI_USED_BY": "KPI assigned to {{USER_COUNT}} user(s):"
-        },
-        "DASHBOARD": {
-            "HEADING": "{{USER_NAME}}'s Dashboard",
-            "KPI_DESC_LABEL": "User KPI:",
-            "UPDATE_LABEL": "Update",
-            "REMOVE_LABEL": "Remove",
-            "UPDATE_USER_LABEL": "Update user",
-            "REMOVE_USER_LABEL": "Remove user",
-            "CONFIRM_REMOVE_USER": "Are you sure you want to remove {{USER_NAME}}? This action cannot be undone.",
-            "CONFIRM_REMOVE_USER_HEADER": "Confirm user removal",
-            "CONFIRM_ACCEPT_LABEL": "Yes, confirm",
-            "CONFIRM_REJECT_LABEL": "No, cancel",
-            "ADD_NEW_KPI_LABEL": "Add a KPI",
-            "ADD_NEW_USER_LABEL": "Add a user",
-            "REMOVE_KPI_LABEL": "Remove",
-            "UPDATE_KPI_TARGET_LABEL": "Update",
-            "CONFIRM_REMOVE_KPI": "Are you sure you want to remove {{KPI_NAME}}? This KPI is used by {{USER_COUNT}} users. This action cannot be undone.",
-            "CONFIRM_REMOVE_KPI_HEADER": "Confirm KPI removal",
-            "KPI_UNAVAILABLE":"Unfortunately, {{USER_NAME}}'s KPIs are inconsistent. <br />To display charts correctly, make sure you have set both KPI values and KPI targets.",
-            "KPI_COMPARE_BTL_LABEL": "Compare KPIs",
-            "KPI_VALUE_DIALOG": {
-                "HEADING": "Update KPI - {{KPI_NAME}} with target {{KPI_TARGET}}",
-                "VALUE_LABEL": "New KPI value",
-                "CONFIRM_BUTTON": "Update",
-                "REMOVE_KPI_BUTTON": "Remove this KPI from {{USER_NAME}}",
-                "TARGET_LABEL": "New KPI target",
-                "UPDATE_KPI_USERS_MESSAGE": "{{KPI_NAME}} is used by {{USER_COUNT}} users. Update this KPI for the other users using it as well?",
-                "UPDATE_KPI_USERS_HEADER": "Update KPI for other users",
-                "UPDATE_KPI_USERS_CONFIRM": "Yes, update",
-                "UPDATE_KPI_USERS_CANCEL": "No, keep it as is",
-                "KPI_UPDATED_WARNING": "<span class='font-semibold text-orange-500'>WARNING!</span> <span class='font-italic'>By updating {{KPI_NAME}}, the change will be applied exclusively for {{USER_NAME}}.</span>"
-            },
-            "ADD_NEW_KPI_DIALOG": {
-                "HEADING": "Add a KPI to {{USER_NAME}}",
-                "UNIT_LABEL": "KPI unit*",
-                "KPI_UNIT_PERCENTAGE": "Percentage (%)",
-                "KPI_UNIT_CURRENCY": "Currency (€)",
-                "KPI_UNIT_ABSOLUTE": "Generic"
-            },
-            "KPI_OVERVIEW": {
-                "VALUE_LABEL": "Value:",
-                "TARGET_LABEL": "Target:",
-                "UNIT_LABEL": "Unit:",
-                "HEADING": "KPI Overview",
-                "DESCRIPTION": "Below is an overview of {{USER_NAME}}'s KPIs. You can update KPI values or remove them if needed."
-            },
-            "USER_UPDATE_DIALOG": {
-                "HEADING": "Update data for {{USER_NAME}}",
-                "KPI_TABLE":{
-                    "KPI_NAME_LABEL": "KPI name",
-                    "KPI_TARGET_LABEL": "KPI target",
-                    "KPI_VALUE_LABEL": "KPI value",
-                    "ADD_KPI_STATE": "Status",
-                    "KPI_ADDED_LABEL": "Added",
-                    "KPI_NOT_ADDED_LABEL": "Available",
-                    "KPI_ACTIONS_LABEL": "Actions"
-                }
-            }
-        },
-        "WELCOME": {
-            "HEADING": "Welcome to KPI Dashboard",
-            "TEXT": "Explore your saved KPIs and view data interactively. Start by adding a new KPI:",
-            "START_BUTTON": "Add a KPI",
-            "NEW_KPI_DIALOG": {
-                "HEADER": "Add a new KPI",
-                "LABEL": "KPI name*",
-                "CANCEL_BUTTON": "Cancel",
-                "ADD_BUTTON": "Add",
-                "VALUE_LABEL": "KPI target value"
-            },
-            "NEW_USER_DIALOG": {
-                "HEADER": "Add a new user",
-                "NAME_LABEL": "First name",
-                "SNAME_LABEL": "Last name",
-                "CANCEL_BUTTON": "Cancel",
-                "ADD_BUTTON": "Add",
-                "SELECT_KPI": "Select KPIs to assign"
-            }
-        }
-    },
-    "LANG": {
-        "SWITCH": "Language"
-    }
+	"NAV": {
+		"BRAND": "KPI Dashboard",
+		"HOME": "Home",
+		"ABOUT": "About",
+		"LANG": {
+			"SWITCH": "Language"
+		}
+	},
+	"FOOTER": {
+		"CONTENT": "© {{YEAR}} KPI Dashboard. All rights reserved. <br />Version: {{APP_VERSION}} Developed by <a href='#' target='_blank' class='font-semibold'>Yuliy Khlyebnikov</a>."
+	},
+	"HOME": {
+		"MESSAGES": {
+			"KPI_CREATED": "KPI {{KPI_NAME}} created successfully",
+			"KPI_CREATION_ERROR": "Error while creating KPI {{KPI_NAME}}",
+			"KPI_REMOVED": "KPI {{KPI_NAME}} removed successfully",
+			"KPI_REMOVED_FROM_USER": "KPI {{KPI_NAME}} removed from {{USER_NAME}} successfully",
+			"KPI_REMOVAL_ERROR": "Error while removing KPI {{KPI_NAME}}",
+			"USER_CREATED": "User {{USER_NAME}} created successfully",
+			"USER_CREATION_ERROR": "Error while creating user {{USER_NAME}}",
+			"USER_REMOVED": "User {{USER_NAME}} removed successfully",
+			"USER_REMOVAL_ERROR": "Error while removing user {{USER_NAME}}",
+			"KPI_FOR_USERS_UPDATED": "{{KPI_NAME}} updated successfully for users who are using it",
+			"KPI_UPDATED": "{{KPI_NAME}} updated successfully"
+		},
+		"SIDEBAR_KPI_HEADING": "KPI List",
+		"SIDEBAR_USERS_HEADING": "User List",
+		"EMPTY_STATE_MESSAGE": "Select a user to view their dashboard or a KPI to view its trend.",
+		"KPI_DASHBOARD":{
+			"HEADING": "Below is a histogram showing the current KPI value for each user who uses it. You can compare user KPIs to identify who is closest to reaching the target.",
+			"HEADING_NO_VALUES":"No data available for this KPI. Make sure at least one user has set a value for this KPI to display the chart.",
+			"KPI_USED_BY": "KPI assigned to {{USER_COUNT}} user(s):"
+		},
+		"DASHBOARD": {
+			"HEADING": "{{USER_NAME}}'s Dashboard",
+			"KPI_DESC_LABEL": "User KPI:",
+			"UPDATE_LABEL": "Update",
+			"REMOVE_LABEL": "Remove",
+			"UPDATE_USER_LABEL": "Update user",
+			"REMOVE_USER_LABEL": "Remove user",
+			"CONFIRM_REMOVE_USER": "Are you sure you want to remove {{USER_NAME}}? This action cannot be undone.",
+			"CONFIRM_REMOVE_USER_HEADER": "Confirm user removal",
+			"CONFIRM_ACCEPT_LABEL": "Yes, confirm",
+			"CONFIRM_REJECT_LABEL": "No, cancel",
+			"ADD_NEW_KPI_LABEL": "Add a KPI",
+			"ADD_NEW_USER_LABEL": "Add a user",
+			"REMOVE_KPI_LABEL": "Remove",
+			"UPDATE_KPI_TARGET_LABEL": "Update",
+			"CONFIRM_REMOVE_KPI": "Are you sure you want to remove {{KPI_NAME}}? This KPI is used by {{USER_COUNT}} users. This action cannot be undone.",
+			"CONFIRM_REMOVE_KPI_HEADER": "Confirm KPI removal",
+			"KPI_UNAVAILABLE":"Unfortunately, {{USER_NAME}}'s KPIs are inconsistent. <br />To display charts correctly, make sure you have set both KPI values and KPI targets.",
+			"KPI_COMPARE_BTL_LABEL": "Compare KPIs",
+			"KPI_VALUE_DIALOG": {
+				"HEADING": "Update KPI - {{KPI_NAME}} with target {{KPI_TARGET}}",
+				"VALUE_LABEL": "New KPI value",
+				"NEW_KPI_NAME":"New KPI name(*)",
+				"CONFIRM_BUTTON": "Update",
+				"REMOVE_KPI_BUTTON": "Remove this KPI from {{USER_NAME}}",
+				"TARGET_LABEL": "New KPI target",
+				"UPDATE_KPI_USERS_MESSAGE": "{{KPI_NAME}} is used by {{USER_COUNT}} users. Update this KPI for the other users using it as well?",
+				"UPDATE_KPI_USERS_HEADER": "Update KPI for other users",
+				"UPDATE_KPI_USERS_CONFIRM": "Yes, update",
+				"UPDATE_KPI_USERS_CANCEL": "No, keep it as is",
+				"KPI_UPDATED_WARNING": "<span class='font-semibold text-orange-500'>WARNING!</span> <span class='font-italic'>By updating {{KPI_NAME}}, the change will be applied exclusively for {{USER_NAME}}.</span>"
+			},
+			"ADD_NEW_KPI_DIALOG": {
+				"HEADING": "Add a KPI to {{USER_NAME}}",
+				"UNIT_LABEL": "KPI unit*",
+				"KPI_UNIT_PERCENTAGE": "Percentage (%)",
+				"KPI_UNIT_CURRENCY": "Currency (€)",
+				"KPI_UNIT_ABSOLUTE": "Generic"
+			},
+			"KPI_OVERVIEW": {
+				"VALUE_LABEL": "Value:",
+				"TARGET_LABEL": "Target:",
+				"UNIT_LABEL": "Unit:",
+				"HEADING": "KPI Overview",
+				"DESCRIPTION": "Below is an overview of {{USER_NAME}}'s KPIs. You can update KPI values or remove them if needed."
+			},
+			"USER_UPDATE_DIALOG": {
+				"HEADING": "Update data for {{USER_NAME}}",
+				"KPI_TABLE":{
+					"KPI_NAME_LABEL": "KPI name",
+					"KPI_TARGET_LABEL": "KPI target",
+					"KPI_VALUE_LABEL": "KPI value",
+					"ADD_KPI_STATE": "Status",
+					"KPI_ADDED_LABEL": "Added",
+					"KPI_NOT_ADDED_LABEL": "Available",
+					"KPI_ACTIONS_LABEL": "Actions"
+				}
+			}
+		},
+		"WELCOME": {
+			"HEADING": "Welcome to KPI Dashboard",
+			"TEXT": "Explore your saved KPIs and view data interactively. Start by adding a new KPI:",
+			"START_BUTTON": "Add a KPI",
+			"NEW_KPI_DIALOG": {
+				"HEADER": "Add a new KPI",
+				"LABEL": "KPI name*",
+				"CANCEL_BUTTON": "Cancel",
+				"ADD_BUTTON": "Add",
+				"VALUE_LABEL": "KPI target value"
+			},
+			"NEW_USER_DIALOG": {
+				"HEADER": "Add a new user",
+				"NAME_LABEL": "First name",
+				"SNAME_LABEL": "Last name",
+				"CANCEL_BUTTON": "Cancel",
+				"ADD_BUTTON": "Add",
+				"SELECT_KPI": "Select KPIs to assign"
+			}
+		},
+		"ABOUT": {
+			"HEADING": "About KPI Dashboard",
+			"DESCRIPTION": "KPI Dashboard is a WEB application designed to help you monitor and compare your key performance indicators (KPIs) in a simple and intuitive way. With KPI Dashboard, you can create a custom dashboard to track your most important KPIs, view data in interactive charts, and compare performance across different users. Whether you are tracking business metrics, personal goals, or any other kind of KPI, KPI Dashboard gives you the tools you need to stay informed and make data-driven decisions."
+		}
+	}
 }

@@ -36,7 +36,7 @@ export class KpiDashboardComponent implements OnInit {
                 this.usersOfKpi$ = this.kpiService.getUsersByKpiId(kpiId).pipe(
                     tap(users => {
                         const chartData = users.map(user => {
-                            const userKpi = user.kpis?.find(k => k.id === kpiId);
+                            const userKpi = user.kpis?.find(k => k.id === kpiId && !!k.value && !!k.target);
                             return {
                                 name: this.getUserName(user),
                                 value: userKpi?.value ?? 0,

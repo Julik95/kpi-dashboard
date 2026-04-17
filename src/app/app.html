@@ -1,20 +1,39 @@
-<nav class="navbar main navbar-expand-lg sticky-top flex-md-nowrap p-2 dark" >
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/home">{{ 'NAV.BRAND' | translate }}</a>
-    <ul class="navbar-nav ms-auto align-items-center gap-2 flex-row">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ 'LANG.SWITCH' | translate }}: {{ currentLang() | uppercase }}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-                @for (lang of langs; track lang) {
-                    <li>
-                        <button class="dropdown-item" [class.active]="lang === currentLang()" (click)="switchLang(lang)">
-                            {{ lang | uppercase }}
-                        </button>
-                    </li>
-                }
+<div class="d-flex flex-column h-100">
+    <nav class="navbar main navbar-expand-lg sticky-top flex-md-nowrap p-2 dark" >
+        <a class="navbar-brand h1 flex gap-2 align-items-center" routerLink="/home">
+            <img src="/assets/favico/icon-32.png" width="32" height="32" class="d-inline-block align-top" alt="">
+            {{ 'NAV.BRAND' | translate }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'NAV.HOME' | translate }}</a>
+                <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'NAV.ABOUT' | translate }}</a>
+            </div>
+            <ul class="navbar-nav ms-auto align-items-center gap-2 flex-row">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ 'NAV.LANG.SWITCH' | translate }}: {{ currentLang() | uppercase }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        @for (lang of langs; track lang) {
+                            <li>
+                                <button class="dropdown-item" [class.active]="lang === currentLang()" (click)="switchLang(lang)">
+                                    {{ lang | uppercase }}
+                                </button>
+                            </li>
+                        }
+                    </ul>
+                </li>
             </ul>
-        </li>
-    </ul>
-</nav>
-<router-outlet></router-outlet>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+    <footer class="mastfoot text-center mt-auto">
+        <div class="inner">
+            <p [innerHTML]="footerContent"></p>
+        </div>
+    </footer>
+</div>
