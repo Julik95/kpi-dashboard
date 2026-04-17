@@ -118,7 +118,7 @@ export class UserDashboardComponent implements OnInit {
         }
         this.kpiMenuItems = nextMenuItems;
         this.initAllKpisChartData();
-        this.setCompareButtonVisibility();
+        // this.setCompareButtonVisibility(); TODO
         this.cdr.detectChanges();
     }
 
