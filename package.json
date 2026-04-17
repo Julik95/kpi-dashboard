@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build-prod": "ng build -c=production",
+    "vercel-build": "ng build --configuration production",
     "build:electron": "ng build -c=electron",
     "electron": "npm run build:electron && electron .",
     "pack": "npm run build:electron && electron-builder --dir",
