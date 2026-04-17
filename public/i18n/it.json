@@ -22,7 +22,7 @@
         "KPI_DASHBOARD":{
             "HEADING": "Di seguito viene riportato un'istogramma che mostra il valore attuale del KPI per ciascun utente che lo utilizza. Puoi confrontare i KPI degli utenti per identificare chi è più vicino al raggiungimento del target.",
             "HEADING_NO_VALUES":"Dati non disponibili per questo KPI. Assicurati che almeno un utente abbia impostato un valore per questo KPI per visualizzare il grafico.",
-            "KPI_USED_BY": "KPI assegnato a {{USER_COUNT}} utenti:"
+            "KPI_USED_BY": "KPI assegnato a {{USER_COUNT}} utente/i:"
         },
         "DASHBOARD": {
             "HEADING": "Dashboard di {{USER_NAME}}",
